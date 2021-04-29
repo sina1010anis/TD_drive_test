@@ -1,4 +1,4 @@
-<p align="center"><a target="_blank"><img src="http://localhost:8000/data/icon/3813347461559033170-128 (1).png" width="100"></a></p>
+<p align="center"><a target="_blank"><img src="./public/data/icon/3813347461559033170-128 (1).png" width="100"></a></p>
 <h2 align="center">Cloud storage</h2>
 
 ----------------
