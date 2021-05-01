@@ -33,8 +33,3 @@ Used the latest versions now
 ## View :
 
 
-## TIPS :
-
-
-## TODO :
-
