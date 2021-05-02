@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Cloud</title>
     <link rel="shortcut icon" href="{{url('data/icon/3813347461559033170-128 (1).png')}}">
-{{--    <script src="https://kit.fontawesome.com/d4c29863c5.js" crossorigin="anonymous"></script>--}}
+    <script src="https://kit.fontawesome.com/d4c29863c5.js" crossorigin="anonymous"></script>
 </head>
 <body>
 <div id="shit">

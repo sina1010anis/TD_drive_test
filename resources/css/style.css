@@ -52,6 +52,16 @@ header{
     font-size: 20px;
     line-height: 50px;
 }
+.icon-bg-profile{
+    padding: 21px 38px;
+    border-radius: 50%;
+    transform: scale(0.8);
+    cursor: pointer;
+    background: rebeccapurple;
+    color: white;
+    font-size: 45px;
+    line-height: 50px;
+}
 .view-item-menu img{
     transform: scale(.12);
     cursor: pointer;
@@ -83,6 +93,69 @@ header{
 }
 .view-item-menu:hover{
     background-color: #ececec;
+}
+.not-auth{
+    background-color: #6b6b6b !important;
+}
+ul{
+    margin: 0;
+    padding: 0;
+}
+.view-menu-to-profile li{
+    list-style: none!important;
+    text-align: right;
+    cursor: pointer;
+    padding: 15px 5px;
+    position: relative;
+}
+.view-menu-to-profile li *{
+    position: absolute;
+    z-index: 10;
+}
+.view-menu-to-profile li span{
+    right: 50px;
+}
+.view-menu-to-profile li:after{
+    content: '';
+    width: 0;
+    height: 100%;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transition: 0.2s;
+    background-color: #f8f8f8;
+}
+.view-menu-to-profile li:hover:after{
+    width: 100%;
+    opacity: 1;
+}
+.view-menu-to-profile li i{
+    position: relative;
+    top: 3px;
+    right: 3px;
+}
+.menu-profile{
+    width: 350px;
+    padding: 10px;
+    display: none;
+    box-sizing: border-box;
+    height: auto;
+    position: absolute;
+    background-color: #ffffff;
+    border-radius: 10px;
+    top: 63px;
+    left: 10px;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1);
+}
+.view-icon-and-name{
+    width: 100%;
+    height: auto;
+}
+.view-icon-and-name img{
+    height: 60px;
+    width: 60px;
+    margin: auto;
 }
 @media all and (max-width: 1300px){
     .pt-3-header-index{
