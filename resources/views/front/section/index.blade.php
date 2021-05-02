@@ -7,7 +7,7 @@
     <menu_right></menu_right>
 @endsection
 @section('view_file')
-    <p>view_file</p>
+    <view_file></view_file>
 @endsection
 @section('item_file')
     <p>item_file</p>

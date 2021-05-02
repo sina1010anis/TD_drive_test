@@ -20,9 +20,6 @@
                 <span class="view-file h-100 fl-right">
                     @yield('view_file')
                 </span>
-                <span class="item-file h-100 fl-right">
-                    @yield('item_file')
-                </span>
             </div>
         </div>
     </div>
