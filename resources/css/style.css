@@ -237,6 +237,20 @@ li{
     overflow-y: scroll;
     scroll-behavior: smooth;
 }
+.group-icon-view img{
+    width: 21px;
+    bottom: 30px;
+    position: relative;
+    right: 24px;
+    margin: 0 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.group-icon-view img:hover{
+    padding: 5px;
+    background-color: #f6f6f6;
+}
 ::-webkit-scrollbar{
     width: 7px;
 }
