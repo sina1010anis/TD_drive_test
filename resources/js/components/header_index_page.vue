@@ -11,7 +11,7 @@
         </span>
         <span class="pt-3-header-index h100 fl-right">
             <span @mouseover="view_menu_profile" @mouseout="view_menu_profile_exit" v-if="auth == 1" class="view-profile set-font fl-left">H</span>
-            <span @mouseover="view_menu_profile" @mouseout="view_menu_profile_exit" v-else class="view-profile set-font fl-left not-auth">?</span>
+            <span v-else class="view-profile set-font fl-left not-auth">?</span>
             <span class="view-item-menu fl-left obj-center ic-1">
                 <img src="/data/icon/menu.png" alt="">
             </span>

@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="09fc01da-b4b6-456c-b77e-001c9c9d08fe" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/data/icon/profile.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/data/icon/plus.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/components/menu_right.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/resources/css/app.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/resources/css/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/components/header_index_page.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/header_index_page.vue" afterDir="false" />
@@ -24,8 +24,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Vue Single File Component" />
         <option value="CSS File" />
+        <option value="Vue Single File Component" />
       </list>
     </option>
   </component>
@@ -189,7 +189,7 @@
       <workItem from="1619702419299" duration="2257000" />
       <workItem from="1619846608751" duration="5610000" />
       <workItem from="1619875172446" duration="8838000" />
-      <workItem from="1619929911200" duration="1271000" />
+      <workItem from="1619929911200" duration="6638000" />
     </task>
     <servers />
   </component>

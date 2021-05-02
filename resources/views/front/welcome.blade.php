@@ -13,6 +13,17 @@
     <div id="row">
         <div id="app">
             @yield('index')
+            <div class="group-view-opt">
+                <span class="view-menu-right h-100 fl-right">
+                    @yield('menu_right')
+                </span>
+                <span class="view-file h-100 fl-right">
+                    @yield('view_file')
+                </span>
+                <span class="item-file h-100 fl-right">
+                    @yield('item_file')
+                </span>
+            </div>
         </div>
     </div>
 </div>
