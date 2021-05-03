@@ -12,6 +12,12 @@
 <div id="shit">
     <div id="row">
         <div id="app">
+            @if(session('msg_suc'))
+                <span class="view-suc set-font">
+                    <i v-on="{click:cls_page_suc}" class="fas fa-times cls-page-suc"></i>
+                    {{session('msg_suc')}}
+                </span>
+            @endif
             @yield('index')
             <div class="group-view-opt">
                 <span class="view-menu-right h-100 fl-right">

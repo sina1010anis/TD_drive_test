@@ -13,8 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {return view('front.section.index');});
-Route::get('/test', function () {return 'test';});
+Route::get('/', function () {return view('front.section.index');})->middleware('auth');
+Route::get('/test', function () {return 'test';})->middleware('auth');
+Route::post('/logout', [\App\Http\Controllers\IndexController::class,'logout'])->name('user.logout')->middleware('auth');
+Route::post('/new/file' , [\App\Http\Controllers\IndexController::class,'newFile'])->name('newFile');
 
 Auth::routes();
 

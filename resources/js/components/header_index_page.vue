@@ -10,7 +10,7 @@
             <input type="text" class="input-search-file set-font f-14" placeholder="Search File" align="right">
         </span>
         <span class="pt-3-header-index h100 fl-right">
-            <span @mouseover="view_menu_profile" @mouseout="view_menu_profile_exit" v-if="auth == 1" class="view-profile set-font fl-left">H</span>
+            <span @mouseover="view_menu_profile" @mouseout="view_menu_profile_exit" v-if="auth == 1" class="view-profile set-font fl-left">{{name}}</span>
             <span v-else class="view-profile set-font fl-left not-auth">?</span>
             <span class="view-item-menu fl-left obj-center ic-1">
                 <img src="/data/icon/menu.png" alt="">
@@ -38,9 +38,7 @@
                 </div>
                 <div class="line"></div>
                 <div style="position: relative;margin: 20px 0" class="group-btn-logout obj-center">
-                    <form action="">
-                        <button class="btn-st-bg select-center set-font f-11 color-b-500" type="submit">LogOut To Profile</button>
-                    </form>
+                    <button @click="logout" class="btn-st-bg select-center set-font f-11 color-b-500" type="submit">LogOut To Profile</button>
                 </div>
             </div>
         </div>
@@ -51,9 +49,13 @@
 export default {
     name: "header_index_page",
     props:[
-        'auth'
+        'auth',
+        'name',
     ],
     methods:{
+        logout(){
+            axios.post('/logout');
+        },
         test(){
             alert('test')
         },

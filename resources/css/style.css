@@ -294,6 +294,59 @@ li{
     left: 50%;
     transform: translate(-50%,-50%);
 }
+.blur{
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+    height: 100vh;
+    width: 100%;
+    z-index: 20;
+    backdrop-filter: blur(8px);
+}
+.btn-new-file-send{
+    width: 100%;
+    padding: 10px 0;
+    margin: 10px 0;
+    background: white;
+    border: 1px solid #c7c7c7;
+    border-radius: 10px;
+    outline: none;
+    cursor: pointer;
+}
+.page-new{
+    width: 100%;
+    max-width: 350px;
+    padding: 10px;
+    display: none;
+    box-sizing: border-box;
+    background-color: white;
+    border-radius: 10px;
+    border: 1px solid #b5b5b5;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 22;
+    transform: translate(-50%,-50%);
+}
+.view-suc{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: #1fbd1f;
+    color: white;
+    padding: 30px 60px;
+    border-radius: 10px;
+    z-index: 10;
+}
+.view-suc i{
+    position: absolute;
+    color: white;
+    cursor: pointer;
+    top: 10px;
+    right: 10px;
+    font-size: 14px;
+}
 @media all and (max-width: 830px){
     .item-file-drive{
         width: 100%!important;
@@ -320,4 +373,56 @@ li{
     .view-file{
         width: 80%;
     }
+}
+.custom-file-input {
+    display: inline-block;
+    position: relative;
+    color: #533e00;
+}
+.custom-file-input input {
+    visibility: hidden;
+    width: 100px;
+}
+.custom-file-input:before {
+    content: 'Choose File';
+    display: block;
+    background: -webkit-linear-gradient( -180deg, #ffdc73, #febf01);
+    background: -o-linear-gradient( -180deg, #ffdc73, #febf01);
+    background: -moz-linear-gradient( -180deg, #ffdc73, #febf01);
+    background: linear-gradient( -180deg, #ffdc73, #febf01);
+    border: 3px solid #dca602;
+    border-radius: 10px;
+    padding: 5px 0px;
+    outline: none;
+    white-space: nowrap;
+    cursor: pointer;
+    text-shadow: 1px 1px rgba(255,255,255,0.7);
+    font-weight: bold;
+    text-align: center;
+    font-size: 10pt;
+    position: absolute;
+    left: 0;
+    right: 0;
+}
+.custom-file-input:hover:before {
+    border-color: #febf01;
+}
+.custom-file-input:active:before {
+    background: #febf01;
+}
+.file-blue:before {
+    content: 'Browse File';
+    background: -webkit-linear-gradient( -180deg, #99dff5, #02b0e6);
+    background: -o-linear-gradient( -180deg, #99dff5, #02b0e6);
+    background: -moz-linear-gradient( -180deg, #99dff5, #02b0e6);
+    background: linear-gradient( -180deg, #99dff5, #02b0e6);
+    border-color: #57cff4;
+    color: #FFF;
+    text-shadow: 1px 1px rgba(000,000,000,0.5);
+}
+.file-blue:hover:before {
+    border-color: #02b0e6;
+}
+.file-blue:active:before {
+    background: #02b0e6;
 }

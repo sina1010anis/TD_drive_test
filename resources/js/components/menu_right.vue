@@ -24,22 +24,42 @@
             <div class="line"></div>
             <div class="view-menu-to-profile">
                 <ul>
-                    <li class="set-font color-b-600 f-13"><span>New Folder </span> <i class="far fa-plus-square f-16"></i> </li>
-                    <li class="set-font color-b-600 f-13"><span>New File</span>  <i class="far fa-folder"></i> </li>
+                    <li @click="show_page_new_file" class="set-font color-b-600 f-13"><span>New File </span> <i class="far fa-plus-square f-16"></i> </li>
+                    <li class="set-font color-b-600 f-13"><span>New Folder</span>  <i class="far fa-folder"></i> </li>
                 </ul>
             </div>
             <div class="line"></div>
         </div>
     </div>
+    <div class="page-new-file page-new" >
+        <p class="f-14 color-b-700 set-font" align="center">New File</p>
+        <div class="line"></div>
+        <slot name="send_file"/>
+    </div>
+    <div @click="hide" class="blur"></div>
 </template>
 
 <script>
 export default {
     name: "menu_right",
     props:[
-        'auth'
+        'auth',
+        'csrf'
     ],
     methods:{
+        hide(){
+            $(".page-new").hide();
+            $(".blur").hide();
+        },
+        show_page_new_file(){
+            $(".page-new").show();
+            $(".blur").show();
+        },
+        send_file(){
+            const file = new FormData();
+            file.append('img' , this.ImageData);
+            axios.post('/new/file' , file).then(alert('ok'));
+        },
         test(){
             alert('test')
         },
