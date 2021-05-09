@@ -347,6 +347,10 @@ li{
     right: 10px;
     font-size: 14px;
 }
+.page-view-file-in-folder{
+    height: 500px!important;
+    max-height: 600px;
+}
 @media all and (max-width: 830px){
     .item-file-drive{
         width: 100%!important;

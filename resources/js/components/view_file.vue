@@ -1,14 +1,14 @@
 <template>
     <div>
         <div class="group-view-file w-100 h-100">
-            <div class="item-item-file fl-right">
-                <div class="view-icon-and-name obj-center-c">
+            <div class="item-item-file fl-right" v-for="i2 in data" :id='"menu"+i2.id'>
+                <div class="view-icon-and-name obj-center-c" >
                     <i @click="cls_view" style="color: red;cursor: pointer" class="fas fa-times"></i>
-                    <p style="margin: 0;padding: 10px" align="center" class="f-14 color-b-600 set-font">Test.jpg</p>
+                    <p style="margin: 0;padding: 10px" align="center" class="f-14 color-b-600 set-font">{{i2.name}}</p>
                     <div class="line"></div>
                     <div class="view-menu-to-profile">
                         <ul>
-                            <li class="set-font color-b-600 f-13"><span>Download </span> <i
+                            <li class="set-font color-b-600 f-13"><a :href="'/data/user/file'+'/'+user+'/'+i2.file"><span>Download </span></a> <i
                                 class="fas fa-arrow-down"></i></li>
                             <li class="set-font color-b-600 f-13" style="color: green"><span>Info</span> <i
                                 class="far fa-question-circle"></i></li>
@@ -29,24 +29,25 @@
                 <div style="padding: 10px 0" class="color-b-700 set-font group-view-file" align="center">
                     <h3>Files</h3>
                     <span class="fl-right group-icon-view">
-                    <img @click="view_folder_group" src="/data/icon/icon_folder.png" alt="">
-                    <img @click="view_file_group" src="/data/icon/icon_file.png" alt="">
-                </span>
+                        <img @click="view_folder_group" src="/data/icon/icon_folder.png" alt="">
+                        <img @click="view_file_group" src="/data/icon/icon_file.png" alt="">
+                    </span>
                 </div>
                 <div class="line"></div>
                 <div class="all-item w-100">
-                <span class="item-file-drive">
-                    <img src="/data/icon/icon_image.png" alt="">
+                <span class="item-file-drive" v-for="i in data">
+                    <img v-if="i.type == 'image/png'" src="/data/icon/icon_image.png" alt="file">
+                    <img v-if="i.type == 'audio/mpeg'" src="/data/icon/icon_music.png" alt="file">
                     <div class="view-name-file">
-                        <p class="set-font f-14 color-b-900" align="center">Test.jpg</p>
+                        <p class="set-font f-14 color-b-900" align="center">{{i.name}}</p>
                     </div>
-                    <i @click="view_item_item_file" class="fas fa-bars"></i>
+                    <i @click="view_item_item_file(i.id)" class="fas fa-bars"></i>
                 </span>
                 </div>
             </div>
         </div>
         <div style="display: none" class="group-view-folder">
-            <div  class="color-b-700 set-font" align="center">
+            <div class="color-b-700 set-font" align="center">
                 <h3>Folder</h3>
                 <span class="fl-right group-icon-view">
                     <img @click="view_folder_group" src="/data/icon/icon_folder.png" alt="">
@@ -55,23 +56,47 @@
             </div>
             <div class="line"></div>
             <div class="all-item w-100">
-                <span style="cursor: pointer" class="item-file-drive">
-                    <img src="/data/icon/folder.png" alt="">
+                <span style="cursor: pointer" class="item-file-drive"  v-for="i in folder" @click="show_page_new_file">
+                    <img src="/data/icon/folder.png" alt="folder">
                     <div class="view-name-file">
-                        <p class="set-font f-14 color-b-900" align="center">New Folder</p>
+                        <p class="set-font f-14 color-b-900" align="center">{{i.name}}</p>
                     </div>
                 </span>
             </div>
         </div>
     </div>
+    <div class="page-view-file-in-folder page-new" >
+        <p class="f-14 color-b-700 set-font" align="center">Folder</p>
+        <div class="line"></div>
+        <slot name="send_file"/>
+    </div>
+    <div @click="hide" class="blur"></div>
 </template>
 
 <script>
 export default {
     name: "view_file",
+    data:()=>({
+       id_menu:0,
+       id_folder:0,
+    }),
+    props: [
+        'data',
+        'user',
+        'folder'
+    ],
     methods: {
-        view_item_item_file() {
-            $('.item-item-file').slideDown();
+        hide(){
+            $(".page-new").hide();
+            $(".blur").hide();
+        },
+        show_page_new_file(){
+            $(".page-view-file-in-folder").show();
+            $(".blur").show();
+        },
+        view_item_item_file(id) {
+            this.id_menu = id;
+            $('#menu'+id).slideDown();
         },
         cls_view() {
             $('.item-item-file').slideUp();
@@ -84,7 +109,7 @@ export default {
             $('.group-view-file').stop().fadeIn();
             $('.group-view-folder').stop().fadeOut();
         }
-    }
+    },
 }
 </script>
 

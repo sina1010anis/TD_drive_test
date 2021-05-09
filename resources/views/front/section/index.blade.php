@@ -17,7 +17,7 @@
     </menu_right>
 @endsection
 @section('view_file')
-    <view_file></view_file>
+    <view_file :folder="{{$folders}}" :data="{{$files}}" user="{{auth()->user()->name}}"></view_file>
 @endsection
 @section('item_file')
 @endsection

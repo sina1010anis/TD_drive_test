@@ -25,7 +25,7 @@
             <div class="view-menu-to-profile">
                 <ul>
                     <li @click="show_page_new_file" class="set-font color-b-600 f-13"><span>New File </span> <i class="far fa-plus-square f-16"></i> </li>
-                    <li class="set-font color-b-600 f-13"><span>New Folder</span>  <i class="far fa-folder"></i> </li>
+                    <li @click="show_page_new_folder" class="set-font color-b-600 f-13"><span>New Folder</span>  <i class="far fa-folder"></i> </li>
                 </ul>
             </div>
             <div class="line"></div>
@@ -36,17 +36,35 @@
         <div class="line"></div>
         <slot name="send_file"/>
     </div>
+    <div class="page-new-folder page-new" >
+        <p class="f-14 color-b-700 set-font" align="center">New File</p>
+        <div class="line"></div>
+        <input class="input-back" type="text" v-model="name_folder">
+        <button @click="set_new_folder" class="btn-new-file-send">send</button>
+    </div>
     <div @click="hide" class="blur"></div>
 </template>
 
 <script>
 export default {
     name: "menu_right",
+    data:()=>({
+        name_folder:'',
+    }),
     props:[
         'auth',
-        'csrf'
+        'csrf',
     ],
     methods:{
+        set_new_folder(){
+            if (this.name_folder != ''){
+                axios.post('/new/folder' , {name:this.name_folder}).then(alert('ok'));
+            }
+        },
+        show_page_new_folder(){
+            $(".page-new-folder").show();
+            $(".blur").show();
+        },
         hide(){
             $(".page-new").hide();
             $(".blur").hide();

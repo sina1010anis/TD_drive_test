@@ -30,7 +30,7 @@
                 <div class="line"></div>
                 <div class="view-menu-to-profile">
                     <ul>
-                        <li class="set-font color-b-600 f-13"><span>New File </span> <i class="far fa-plus-square f-16"></i> </li>
+                        <li @click="show_page_new_file" class="set-font color-b-600 f-13"><span>New File </span> <i class="far fa-plus-square f-16"></i> </li>
                         <li class="set-font color-b-600 f-13"><span>Setting</span>  <i class="fas fa-cog f-16"></i> </li>
                         <li class="set-font color-b-600 f-13"><span>Apps</span> <i class="fas fa-shapes f-16"></i>  </li>
                         <li class="set-font color-b-600 f-13"><span>Info</span> <i class="far fa-question-circle f-16"></i> </li>
@@ -43,6 +43,12 @@
             </div>
         </div>
     </header>
+    <div class="page-new-file page-new" >
+        <p class="f-14 color-b-700 set-font" align="center">New File</p>
+        <div class="line"></div>
+        <slot name="send_file"/>
+    </div>
+    <div @click="hide" class="blur"></div>
 </template>
 
 <script>
@@ -53,6 +59,11 @@ export default {
         'name',
     ],
     methods:{
+        send_file(){
+            const file = new FormData();
+            file.append('img' , this.ImageData);
+            axios.post('/new/file' , file).then(alert('ok'));
+        },
         logout(){
             axios.post('/logout');
         },
@@ -64,7 +75,11 @@ export default {
         },
         view_menu_profile_exit(){
             $(".menu-profile").stop().slideToggle(200)
-        }
+        },
+        show_page_new_file(){
+            $(".page-new").show();
+            $(".blur").show();
+        },
     }
 }
 </script>

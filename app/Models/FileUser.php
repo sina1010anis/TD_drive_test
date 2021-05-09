@@ -13,6 +13,6 @@ class FileUser extends Model
 
     public function users()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class , 'user_id' , 'id');
     }
 }
