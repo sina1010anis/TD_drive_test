@@ -2,7 +2,14 @@
 
 @section('index')
     <header_index_page auth="<?php echo (auth()->check()) ? 1 : 0; ?>"
-                       name="<?php $n = auth()->user()->name;echo $n[0];?>"></header_index_page>
+                       name="<?php $n = auth()->user()->name;echo $n[0];?>">
+        <template #logout>
+            <form action="{{route('logout')}}" method="post">
+                @csrf
+                <button class="btn-st-bg select-center set-font f-11 color-b-500" type="submit">LogOut To Profile</button>
+            </form>
+        </template>
+    </header_index_page>
 @endsection
 @section('menu_right')
     <menu_right>
