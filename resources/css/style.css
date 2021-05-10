@@ -351,6 +351,17 @@ li{
     height: 500px!important;
     max-height: 600px;
 }
+.page-view-file-in-folder p i{
+    cursor: pointer;
+    color: green;
+}
+.page-select-file-in-folder{
+    max-width: 450px!important;
+}
+.item-folder_in_file{
+    padding: 10px 10px;
+    box-sizing: border-box;
+}
 @media all and (max-width: 830px){
     .item-file-drive{
         width: 100%!important;

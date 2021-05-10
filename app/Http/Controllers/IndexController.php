@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\file_in_folder;
 use App\Models\FileUser;
 use App\Models\folder_user;
 use Illuminate\Http\Request;
@@ -38,11 +39,35 @@ class IndexController extends Controller
     public function newFolder(Request $request , folder_user $folder_user)
     {
         if ($request->ajax()){
-            $folder_user->name = $request->name;
-            $folder_user->user_id = auth()->user()->id;
-            $folder_user->save();
-            $folder_user->save();
-            return redirect()->back()->with('msg_suc' , 'Create Folder '.$request->name);
+            $count = folder_user::whereName($request->name)->count();
+            if ($count == 0){
+                $folder_user->name = $request->name;
+                $folder_user->user_id = auth()->user()->id;
+                $folder_user->save();
+                $folder_user->save();
+                return 'ok';
+            }else {
+                return 'err';
+            }
         }
+    }
+
+    public function newFileInFolder(Request $request , file_in_folder $file_in_folder)
+    {
+        $tmp=$request->file('img');
+        $name_not=Hash::make(rand(0,100)).$tmp->getClientOriginalName();
+        for ($i=0;$i<strlen($name_not);$i++){
+            if ($name_not[$i] == '/'){
+                $name_not[$i] = '0';
+            }
+        }
+        $name =$name_not;
+        $tmp->move(public_path('/data/user/file/'.auth()->user()->name.'/'),$name);
+        $file_in_folder->user_id = auth()->user()->id;
+        $file_in_folder->folder_id = $request->folder_id;
+        $file_in_folder->file = $name;
+        $file_in_folder->name = $tmp->getClientOriginalName();
+        $file_in_folder->save();
+        return redirect()->back()->with('msg_suc' , 'Upload successfully');
     }
 }

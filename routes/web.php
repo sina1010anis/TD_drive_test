@@ -18,6 +18,7 @@ Route::get('/test', function () {return 'test';})->middleware('auth');
 Route::post('/logout', [\App\Http\Controllers\IndexController::class,'logout'])->name('user.logout')->middleware('auth');
 Route::post('/new/file' , [\App\Http\Controllers\IndexController::class,'newFile'])->name('newFile');
 Route::post('/new/folder' , [\App\Http\Controllers\IndexController::class,'newFolder'])->name('newFolder');
+Route::post('/new/file/folder' , [\App\Http\Controllers\IndexController::class,'newFileInFolder'])->name('newFileInFolder');
 
 Auth::routes();
 

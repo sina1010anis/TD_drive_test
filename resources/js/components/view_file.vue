@@ -56,7 +56,7 @@
             </div>
             <div class="line"></div>
             <div class="all-item w-100">
-                <span style="cursor: pointer" class="item-file-drive"  v-for="i in folder" @click="show_page_new_file">
+                <span style="cursor: pointer" class="item-file-drive"  v-for="i in folder" @click="show_page_new_file(i.id)">
                     <img src="/data/icon/folder.png" alt="folder">
                     <div class="view-name-file">
                         <p class="set-font f-14 color-b-900" align="center">{{i.name}}</p>
@@ -66,9 +66,21 @@
         </div>
     </div>
     <div class="page-view-file-in-folder page-new" >
-        <p class="f-14 color-b-700 set-font" align="center">Folder</p>
+        <p class="f-14 color-b-700 set-font" align="center">Folder <i @click="show_page_new_file_in_folder" class="far fa-plus-square fl-right f-20"></i></p>
         <div class="line"></div>
-        <slot name="send_file"/>
+        <div v-for="i in file_in_folder">
+            <div class="item-folder_in_file set-font" v-if="i.folder_id == id_folder">
+                <i style="color: #1d68a7" class="fas fa-feather-alt"></i>  <span class="f-11">{{i.name}}</span>
+                    <a :href="'/data/user/file'+'/'+user+'/'+i.file" download>
+                        <i style="color: green" class="fas fa-arrow-down fl-right pointer"></i>
+                    </a>
+            </div>
+        </div>
+    </div>
+    <div class="page-select-file-in-folder page-new" >
+        <p class="f-14 color-b-700 set-font" align="center">File</p>
+        <div class="line"></div>
+        <slot :folder_id="id_folder"></slot>
     </div>
     <div @click="hide" class="blur"></div>
 </template>
@@ -83,14 +95,19 @@ export default {
     props: [
         'data',
         'user',
-        'folder'
+        'folder',
+        'file_in_folder',
     ],
     methods: {
+        show_page_new_file_in_folder(){
+            $(".page-select-file-in-folder").show();
+        },
         hide(){
             $(".page-new").hide();
             $(".blur").hide();
         },
-        show_page_new_file(){
+        show_page_new_file(id){
+            this.id_folder = id
             $(".page-view-file-in-folder").show();
             $(".blur").show();
         },
