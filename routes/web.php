@@ -19,6 +19,8 @@ Route::post('/logout', [\App\Http\Controllers\IndexController::class,'logout'])-
 Route::post('/new/file' , [\App\Http\Controllers\IndexController::class,'newFile'])->name('newFile');
 Route::post('/new/folder' , [\App\Http\Controllers\IndexController::class,'newFolder'])->name('newFolder');
 Route::post('/new/file/folder' , [\App\Http\Controllers\IndexController::class,'newFileInFolder'])->name('newFileInFolder');
+Route::post('/save/file' , [\App\Http\Controllers\IndexController::class,'saveFile'])->name('saveFile');
+Route::post('/delete/file' , [\App\Http\Controllers\IndexController::class,'deleteFile'])->name('deleteFile');
 
 Auth::routes();
 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\file_in_folder;
 use App\Models\FileUser;
 use App\Models\folder_user;
+use App\Models\save_file;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Psy\Util\Str;
@@ -69,5 +70,21 @@ class IndexController extends Controller
         $file_in_folder->name = $tmp->getClientOriginalName();
         $file_in_folder->save();
         return redirect()->back()->with('msg_suc' , 'Upload successfully');
+    }
+    public function saveFile(Request $request , save_file $save_file){
+        $save_file->user_id = auth()->user()->id;
+        $save_file->file_id =$request->id;
+        $save_file->save();
+        return 'Saved File To Item SaveFile';
+    }
+
+    public function deleteFile(Request $request)
+    {
+        $file = FileUser::find($request->id);
+        FileUser::where(['user_id' => auth()->user()->id , 'id' => $request->id])->delete();
+        $path=public_path('data\user\file'.'\\'.auth()->user()->name.'\\'.$file->file);
+        unlink($path);
+        return 'Delete File '.$file->name;
+
     }
 }

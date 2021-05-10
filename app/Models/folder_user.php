@@ -10,7 +10,7 @@ class folder_user extends Model
     use HasFactory;
     protected $guarded = [];
 
-    public function folder_users()
+    public function users()
     {
         return $this->belongsTo(User::class , 'user_id' , 'id');
     }

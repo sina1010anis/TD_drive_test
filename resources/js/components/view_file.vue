@@ -17,9 +17,9 @@
                     <div class="line"></div>
                     <div class="view-menu-to-profile">
                         <ul>
-                            <li class="set-font color-b-600 f-13"><span>Save </span> <i class="far fa-save f-16"></i>
+                            <li @click="save_file(i2.id)" class="set-font color-b-600 f-13"><span>Save </span> <i class="far fa-save f-16"></i>
                             </li>
-                            <li class="set-font color-b-600 f-13" style="color: red"><span>Delete</span> <i
+                            <li @click="delete_file(i2.id)" class="set-font color-b-600 f-13" style="color: red"><span>Delete</span> <i
                                 class="far fa-trash-alt"></i></li>
                         </ul>
                     </div>
@@ -99,6 +99,12 @@ export default {
         'file_in_folder',
     ],
     methods: {
+        save_file(id){
+            axios.post('/save/file' , {id:id}).then((res)=>{alert(res.data)});
+        },
+        delete_file(id){
+            axios.post('/delete/file' , {id:id}).then((res)=>{alert(res.data)});
+        },
         show_page_new_file_in_folder(){
             $(".page-select-file-in-folder").show();
         },

@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="09fc01da-b4b6-456c-b77e-001c9c9d08fe" name="Default Changelist" comment="" />
+    <list default="true" id="09fc01da-b4b6-456c-b77e-001c9c9d08fe" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/IndexController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/IndexController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/folder_user.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/folder_user.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/view_file.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/view_file.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -187,7 +194,8 @@
       <workItem from="1620562656377" duration="1803000" />
       <workItem from="1620565283718" duration="596000" />
       <workItem from="1620566549747" duration="4991000" />
-      <workItem from="1620621785063" duration="5283000" />
+      <workItem from="1620621785063" duration="5482000" />
+      <workItem from="1620651407189" duration="4683000" />
     </task>
     <servers />
   </component>
