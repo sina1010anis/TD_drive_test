@@ -12,7 +12,7 @@
     </header_index_page>
 @endsection
 @section('menu_right')
-    <menu_right>
+    <menu_right :save_file="{{$save_file}}">
         <template v-slot:send_file>
             <form action="{{route('newFile')}}" method="post" enctype="multipart/form-data">
                 @csrf

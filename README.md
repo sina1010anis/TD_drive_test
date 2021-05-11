@@ -6,7 +6,7 @@
 ## Description :
 
 Project for storing data inside your hard drive (this project is for testing and does not have real usability)
-
+In this application, you can upload a file or upload a folder of 9T and inside the file, and you can also delete or save the uploaded files.
 ## Items used:
 
 This website is designed with laravel and vuejs as well as related libraries like jquery
@@ -32,4 +32,11 @@ Used the latest versions now
 
 ## View :
 
+<img src="/public/data/image/v1.png">
+
+<img src="/public/data/image/v2.png">
+
+<img src="/public/data/image/v3.png">
+
+<img src="/public/data/image/v4.png">
 
